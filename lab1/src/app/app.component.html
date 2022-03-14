@@ -1,0 +1,10 @@
+<h3>Họ Tên: {{name}}</h3>
+<input type="text" [value]="name" (keyup)="changeName($event)">
+<h3>Số điện thoại: {{phone}}</h3>
+<input type="number" [value]="phone" (keyup)="changePhone($event)">
+<h3>Email: {{email}}</h3>
+<input type="email" [value]="email" (keyup)="changeEmail($event)">
+<h3>Quê Quán: {{hometown}}</h3>
+<input type="text" [value]="hometown" (keyup)="changeHometown($event)">
+<h3>Ngày Sinh: {{bird}}</h3>
+<input type="date" [value]="bird" (change)="changeBird($event)">

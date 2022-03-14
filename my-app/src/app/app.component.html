@@ -1,0 +1,134 @@
+<div class="container py-4">
+  <div class="row">
+    <div class="col-6">
+      <h3>THÔNG TIN</h3>
+      Mã số: <span *ngIf="formHero.code">{{formHero.code}}</span><br>
+      Tên: <span *ngIf="formHero.code">{{formHero.name}}</span><br>
+      Avatar: <span *ngIf="formHero.code">{{formHero.avatar}}</span><br>
+      Giới tính: <span *ngIf="formHero.code">{{formHero.gender}}</span>
+      <hr>
+      <div class="form-group">
+        <label for="">Mã số</label>
+        <input type="text" [(ngModel)]="formHero.code" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Tên</label>
+        <input type="text" [(ngModel)]="formHero.name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">avatar</label>
+        <input type="text" [(ngModel)]="formHero.avatar" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Giới tính</label>
+        <select [(ngModel)]="formHero.gender" class="form-control" name="" id="">
+          <option>Nam</option>
+          <option>Nữ</option>
+          <option>Khác</option>
+        </select>
+      </div>
+      <div class="form-group">
+
+        <button (click)="submitForm()" class="btn btn-primary mt-3">Lưu</button>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <table class="table table-hover">
+    <thead>
+      <th>Mã Số</th>
+      <th>Tên</th>
+      <th>Ảnh</th>
+      <th>Giới Tính</th>
+      <th></th>
+    </thead>
+    <tbody *ngIf="heroes.length > 0">
+      <tr *ngFor="let item of heroes">
+        <td>{{item.code}}</td>
+        <td>{{item.name}}</td>
+        <td>
+          <img [src]="item.avatar" width="200">
+        </td>
+        <td>{{item.gender}}</td>
+        <td>
+          <button (click)="update(item)" class="btn btn-sm btn-primary">Cập nhật</button>
+          <button (click)="removeHeroes(item)" class="btn btn-sm btn-danger">Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<hr>
+<hr>
+<hr>
+<hr>
+<div class="container py-4">
+  <div class="row">
+    <div class="col-6">
+      <h3>THÔNG TIN EMENIES</h3>
+      Mã số: <span *ngIf="formEmenies.code">{{formEmenies.code}}</span><br>
+      Tên: <span *ngIf="formEmenies.name">{{formEmenies.name}}</span><br>
+      heathling: <span *ngIf="formEmenies.heathling">{{formEmenies.heathling}}</span><br>
+      amor: <span *ngIf="formEmenies.amor">{{formEmenies.amor}}</span><br>
+      avatar: <span *ngIf="formEmenies.avatar">{{formEmenies.avatar}}</span>
+      <hr>
+      <div class="form-group">
+        <label for="">Mã số</label>
+        <input type="number" [(ngModel)]="formEmenies.code" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Tên</label>
+        <input type="text" [(ngModel)]="formEmenies.name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">heathling</label>
+        <input type="number" [(ngModel)]="formEmenies.heathling" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">amor</label>
+        <input type="number" [(ngModel)]="formEmenies.amor" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">avatar</label>
+        <input type="text" [(ngModel)]="formEmenies.avatar" class="form-control">
+      </div>
+      <div class="form-group">
+
+        <button (click)="submitFormEmenies()" class="btn btn-primary mt-3">Lưu</button>
+      </div>
+    </div>
+  </div>
+  <h3>Danh sách</h3>
+  <table class="table table-hover border-dark">
+    <thead>
+      <th>Mã Số</th>
+      <th>Tên</th>
+      <th>Ảnh</th>
+      <th>heathling</th>
+      <th>giáp</th>
+      <th></th>
+    </thead>
+    <tbody *ngIf="emenies.length > 0">
+      <tr *ngFor="let item of emenies">
+        <td>{{item.code}}</td>
+        <td>{{item.name}}</td>
+        <td>
+          <img [src]="item.avatar" width="200" />
+        </td>
+        <td>{{item.heathling}}</td>
+        <td>{{item.amor}}</td>
+        <td>
+          <button (click)="updateEmenies(item)" class="btn btn-sm btn-primary">
+            Cập nhật
+          </button>
+          <button (click)="removeEmenies(item)" class="btn btn-sm btn-danger">
+            Xóa
+          </button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
