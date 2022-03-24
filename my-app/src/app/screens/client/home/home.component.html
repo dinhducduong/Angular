@@ -1,0 +1,29 @@
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="font-weight-light">Chào mừng bạn đã đến với quizz poly</h1>
+            <p class="lead text-muted">Hãy chăm chỉ lên để đạt được ong vàng nhé!!</p>
+            <p>
+                <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            </p>
+        </div>
+    </div>
+</section>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div *ngFor="let item of subjects" class="col">
+        <div class="card shadow-sm">
+            <img src="https://res.cloudinary.com/duongquanhoa/image/upload/v1647661125/quiz-5_d4xftq.png" alt="">
+            <hr>
+            <div class="card-body">
+                <h5>{{item.Name}}</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a [routerLink]="'quiz/' + item.Code" class="btn btn-sm btn-outline-secondary">LEARN MORE</a>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

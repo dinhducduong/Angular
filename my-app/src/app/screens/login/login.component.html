@@ -1,0 +1,54 @@
+<div class="container pt-5">
+    <div class="row pt-6">
+
+        <div class="col-md-4 offset-md-4">
+            <div class="login-form bg-light mt-4 p-4">
+                <form action="" [formGroup]="loginForm" (submit)="submitForm()" class="row g-3">
+                    <h4>Đăng nhập</h4>
+                    <div class="col-12">
+                        <label>Email</label>
+                        <input type="text" formControlName="email" class="form-control" placeholder="Nhập Email">
+                        <div
+                            *ngIf="loginForm.controls['email'].invalid &&(loginForm.controls['email'].touched || loginForm.controls['email'].dirty)">
+                            <span class="text-danger" *ngIf="loginForm.controls['email'].errors?.['email']">
+                                Hãy nhập email đúng định dạng
+                            </span>
+                            <span class="text-danger" *ngIf="loginForm.controls['email'].errors?.['required']">
+                                Hãy nhập email
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label>Mật khẩu</label>
+                        <input type="password" formControlName="password" class="form-control"
+                            placeholder="Nhập mật khẩu">
+                        <div
+                            *ngIf="loginForm.controls['password'].invalid &&(loginForm.controls['password'].touched || loginForm.controls['password'].dirty)">
+                            <span class="text-danger" *ngIf="loginForm.controls['password'].errors?.['required']">
+                                Hãy nhập Password
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe"> Remember me</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button [disabled]="loginForm.invalid" type="submit"
+                            class="btn btn-primary float-end">Login</button>
+                    </div>
+                </form>
+                <hr class="mt-4">
+                <div class="text-center">
+                    <span class="text-primary">
+                        or sign in with
+                        <hr>
+                    </span>
+                    <button class="btn btn-danger"><i class="fa-brands fa-google-plus-g"></i> Google</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
