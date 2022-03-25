@@ -17,7 +17,6 @@ export class ListQuizComponent implements OnInit {
       this.id = Number(data['id']);
       this.QuizServices.listQuiz(data['id']).subscribe(data => {
         this.quiz = data
-        console.log(data);
 
       })
     })

@@ -5,56 +5,17 @@
     <div class="row">
         <div class="col">
             <div class="table">
-                <div>
-                    <td>Câu 1: 1 + 1 = ?<br>
-
+                <div *ngFor="let item of quiz | randomquetions; index as i">
+                    <td>Câu: {{i+1}} : {{item.Text}}<br>
                         <form method="get" action="" enctype="multipart/form-data">
                             <div class="form-check px-4">
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
+                                <input id="my-input" class="form-check-input" type="radio" name="answer" value="true">
                                 <label for="my-input" class="form-check-label">Text</label><br>
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
+                                <input id="my-input" class="form-check-input" type="radio" name="answer" value="true">
                                 <label for="my-input" class="form-check-label">Text</label><br>
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
+                                <input id="my-input" class="form-check-input" type="radio" name="answer" value="true">
                                 <label for="my-input" class="form-check-label">Text</label><br>
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
-                                <label for="my-input" class="form-check-label">Text</label>
-                            </div>
-
-                        </form>
-                    </td>
-                </div>
-
-                <div>
-                    <td>Câu 1: 1 + 1 = ?<br>
-
-                        <form method="get" action="" enctype="multipart/form-data">
-                            <div class="form-check px-4">
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
-                                <label for="my-input" class="form-check-label">Text</label><br>
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
-                                <label for="my-input" class="form-check-label">Text</label><br>
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
-                                <label for="my-input" class="form-check-label">Text</label><br>
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
-                                <label for="my-input" class="form-check-label">Text</label>
-                            </div>
-
-                        </form>
-                    </td>
-                </div>
-
-                <div>
-                    <td>Câu 1: 1 + 1 = ?<br>
-
-                        <form method="get" action="" enctype="multipart/form-data">
-                            <div class="form-check px-4">
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
-                                <label for="my-input" class="form-check-label">Text</label><br>
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
-                                <label for="my-input" class="form-check-label">Text</label><br>
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
-                                <label for="my-input" class="form-check-label">Text</label><br>
-                                <input id="my-input" class="form-check-input" type="checkbox" name="" value="true">
+                                <input id="my-input" class="form-check-input" type="radio" name="answer" value="true">
                                 <label for="my-input" class="form-check-label">Text</label>
                             </div>
                         </form>
@@ -62,9 +23,9 @@
                 </div>
 
                 <div class="py-3">
-                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false"
-                        autocomplete="off">Hoàn
-                        thành</button>
+                    <a [routerLink]="'/history'" routerLinkActive="router-link-active" class="btn btn-primary"
+                        data-toggle="button" aria-pressed="false" autocomplete="off">Hoàn
+                        thành</a>
                 </div>
 
             </div>

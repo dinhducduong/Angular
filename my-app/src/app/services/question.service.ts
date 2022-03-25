@@ -10,7 +10,7 @@ export class QuestionService {
 
   constructor(private http: HttpClient) { }
   listQuestion(id: any): Observable<any> {
-    return this.http.get<any>(`${environment.question_api}/${id}`);
+    return this.http.get<any>(`${environment.question_api}/${id}?_limit=10`);
   }
 }
 
