@@ -8,6 +8,8 @@ export const environment = {
   subject_api: `${BASE_API}/subjects`,
   quiz_api: `${BASE_API}/quiz`,
   question_api: `${BASE_API}`,
+  user_api: `${BASE_API}/users`,
+  history_api: `${BASE_API}/historys`,
 };
 
 /*

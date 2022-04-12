@@ -25,6 +25,9 @@ import { EditQuestionComponent } from './screens/admin/list-question/edit-questi
 import { AddStudentComponent } from './screens/admin/student/add-student/add-student.component';
 import { EditStudentComponent } from './screens/admin/student/edit-student/edit-student.component';
 import { HistoryComponent } from './screens/client/history/history.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { environment } from 'src/environments/environment';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ import { HistoryComponent } from './screens/client/history/history.component';
     EditQuestionComponent,
     AddStudentComponent,
     EditStudentComponent,
-    HistoryComponent
+    HistoryComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -56,10 +60,28 @@ import { HistoryComponent } from './screens/client/history/history.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    SocialLoginModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              environment.GOOGLE_CLIENT_ID
+            )
+          }
+        ],
+        onError: (err) => {
+        }
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

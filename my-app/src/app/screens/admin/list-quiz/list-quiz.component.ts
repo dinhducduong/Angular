@@ -21,4 +21,9 @@ export class ListQuizComponent implements OnInit {
       })
     })
   }
+  remove(id: any) {
+    this.QuizServices.remove(id).subscribe(data => {
+      this.quiz = this.quiz.filter(item => item.id != id);
+    })
+  }
 }

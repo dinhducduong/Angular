@@ -15,7 +15,7 @@
                 <td>#{{i+1}}</td>
                 <td>{{item.Code}}</td>
                 <td><a [routerLink]="'quiz/' + item.Code" routerLinkActive="router-link-active">{{item.Name}}</a></td>
-                <td>{{item.Logo}}</td>
+                <td><img [src]="'/assets/logos/' + item.Logo" width="100"></td>
                 <td>
                     <a [routerLink]="'edit/' + item.id" routerLinkActive="router-link-active"
                         class="btn btn-primary">Cập

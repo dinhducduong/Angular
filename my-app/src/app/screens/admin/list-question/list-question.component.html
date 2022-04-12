@@ -3,32 +3,23 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Tên câu hỏi</th>
+            <th scope="col-8">Tên câu hỏi</th>
             <th scope="col">Đáp án đúng</th>
             <th scope="col">Handle</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Bao nhiêu lâu bán được 1 tỉ gói mè</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td><a class="btn btn-primary" [routerLink]="'edit/2'" routerLinkActive="router-link-active">Cập nhật</a>
+        <tr *ngFor="let item of question;index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.Text}}</td>
+            <div *ngFor="let items of item.Answers">
+                <td *ngIf="items.Id == item.AnswerId">{{items.Text}}</td>
+            </div>
+            <td><a class="btn btn-primary" [routerLink]="'edit/'+item.id" routerLinkActive="router-link-active">Cập
+                    nhật</a>
+                <button (click)="remove(item.id)" class="btn btn-danger">Xóa</button>
             </td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td><a class="btn btn-primary" [routerLink]="'edit'" routerLinkActive="router-link-active">Cập nhật</a></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            <td><a class="btn btn-primary" [routerLink]="'edit'" routerLinkActive="router-link-active">Cập nhật</a></td>
-        </tr>
+
     </tbody>
 </table>

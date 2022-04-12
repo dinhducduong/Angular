@@ -22,18 +22,31 @@
                     <img src="https://res.cloudinary.com/duongquanhoa/image/upload/v1647661125/quiz-5_d4xftq.png"
                         width="120">
                 </a>
-                <a [routerLink]="['/login']" routerLinkActive="router-link-active"
-                    class="navbar-brand align-items-center btn btn-primary">
+                <div *ngIf="!name">
+                    <a [routerLink]="'/login'" routerLinkActive="router-link-active"
+                        class="navbar-brand align-items-center btn btn-primary">
+                        Đăng nhập
+                    </a>
+                </div>
+                <div *ngIf="name">
 
-                    Đăng nhập
-                </a>
+                    <a class="text-white" (click)="logout()" href="javascript:;">
+                        Xin chào: {{name}}
+                    </a>
+                </div>
+                <!-- <div *ngIf="name">
+                    <a class="text-white" (click)="logout()" href="javascript:;">
+                        Xin chào: {{name}}
+                    </a>
+                </div> -->
+
+
+
             </div>
+
         </div>
     </header>
     <main>
-
-
-
         <div class="album py-5 bg-light">
             <div class="container">
                 <router-outlet>

@@ -21,7 +21,9 @@
                         <td>{{item.Name}}</td>
                         <td>{{item.time_start}}</td>
                         <td>{{item.time_end}}</td>
-                        <td><a [routerLink]="'/question/'+ item.code_id">Bắt đầu</a></td>
+                        <td><a (click)="StartQuiz(item.id)"
+                                [routerLink]="'/quiz/'+item.id+'/question/'+ item.code_id">Bắt
+                                đầu</a></td>
                     </tr>
                 </tbody>
             </table>

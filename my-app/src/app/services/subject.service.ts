@@ -15,4 +15,13 @@ export class SubjectServices {
   remove(id: any): Observable<any> {
     return this.http.delete<any>(`${environment.subject_api}/${id}`);
   }
+  AddSubjects(data: any): Observable<any> {
+    return this.http.post<any>(`${environment.subject_api}`, data);
+  }
+  editSubject(data: any, id: any): Observable<any> {
+    return this.http.put<any>(`${environment.subject_api}/${id}`, data);
+  }
+  getSubject(id: any): Observable<any> {
+    return this.http.get<any>(`${environment.subject_api}/${id}`);
+  }
 }

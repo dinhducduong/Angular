@@ -35,18 +35,12 @@
                             <label class="form-check-label" for="rememberMe"> Remember me</label>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <button [disabled]="loginForm.invalid" type="submit"
-                            class="btn btn-primary float-end">Login</button>
-                    </div>
+
                 </form>
-                <hr class="mt-4">
-                <div class="text-center">
-                    <span class="text-primary">
-                        or sign in with
-                        <hr>
-                    </span>
-                    <button class="btn btn-danger"><i class="fa-brands fa-google-plus-g"></i> Google</button>
+                <hr class="mt-6">
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary" (click)="googleLogin()"><i class="fa-brands fa-google-plus-g"></i>
+                        Đăng nhập Google</button>
                 </div>
             </div>
         </div>

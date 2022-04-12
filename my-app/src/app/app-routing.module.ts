@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './helpers/auth-guard';
 import { DashboardLayoutComponent } from './screens/admin/dashboard-layout/dashboard-layout.component';
 import { AddSubjectComponent } from './screens/admin/dashboard/add-subject/add-subject.component';
 import { DashboardComponent } from './screens/admin/dashboard/dashboard.component';
@@ -24,18 +25,19 @@ const routes: Routes = [
   {
     path: "",
     component: HomeLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: "",
-        component: HomeComponent
-
+        component: HomeComponent,
       },
       {
         path: "quiz/:id",
-        component: QuizzComponent
+        component: QuizzComponent,
+
       },
       {
-        path: "question/:id",
+        path: "quiz/:id_q/question/:id",
         component: QuestionComponent
       },
       {
@@ -47,6 +49,7 @@ const routes: Routes = [
   {
     path: "cp-admin",
     component: DashboardLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: "",
@@ -54,40 +57,43 @@ const routes: Routes = [
       },
       {
         path: "add",
-        component: AddSubjectComponent
+        component: AddSubjectComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: "edit/:id",
-        component: EditSubjectComponent
+        component: EditSubjectComponent,
+        canActivate: [AuthGuard],
       },
       //////
       {
         path: "student",
         component: StudentComponent,
+        canActivate: [AuthGuard],
 
       },
       {
         path: "student/add",
-        component: AddStudentComponent,
+        component: AddStudentComponent, canActivate: [AuthGuard],
 
       },
       {
         path: "student/edit/:id",
-        component: EditStudentComponent,
+        component: EditStudentComponent, canActivate: [AuthGuard],
 
       },
       //////////////
       {
         path: "quiz/:id/add",
-        component: AddQuizComponent
+        component: AddQuizComponent, canActivate: [AuthGuard],
       },
       {
-        path: "quiz/:id/edit",
-        component: EditQuizComponent
+        path: "quiz/:id_sub/edit/:id",
+        component: EditQuizComponent, canActivate: [AuthGuard],
       },
       {
         path: "quiz/:id",
-        component: ListQuizComponent,
+        component: ListQuizComponent, canActivate: [AuthGuard],
       },
       ////
       {
@@ -95,7 +101,7 @@ const routes: Routes = [
         component: ListQuestionComponent
       },
       {
-        path: "quiz/:id/question/edit/:id",
+        path: "quiz/:id_sub/question/edit/:id",
         component: EditQuestionComponent
       },
       {
@@ -113,7 +119,6 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent,
-    children: []
   }
 ];
 
